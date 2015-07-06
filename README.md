@@ -42,3 +42,5 @@ I'll have to ask reddit how to do it.
 
 I've written a function to decrease the stats in the background. Means the tamagotchi can now get hungry etc.
 However it currently doesn't work. I don't know why atm. If you call it independently it works just fine.
+
+In addition I've cleaned up the code a bit and made sure that the stats variables don't fall under 0 because that might cause some problems in the future.
