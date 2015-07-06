@@ -44,7 +44,7 @@ def beginning():
         pet_variables.pet_photo = owl
 
 
-# A cunction which changes the status of the pet depending of the age value.
+# A function which changes the status of the pet depending of the age value.
 # Each status has it's own characteristics.
 def aging():
     pet_variables.pet_status
