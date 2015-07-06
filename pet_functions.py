@@ -63,16 +63,33 @@ def aging():
         print("However it's health is worse and it's grumpier than an adult.")
 
 
+def increase_hunger():
+    pet_variables.pet_hunger = pet_variables.pet_hunger + 1
+
+
+def increase_happiness():
+    if pet_variables.pet_happiness < pet_variables.max_happiness:
+        pet_variables.pet_happiness = pet_variables.pet_happiness + 1
+
+
+def increase_health():
+    if pet_variables.pet_health < pet_variables.max_health:
+        pet_variables.pet_health = pet_variables.pet_health + 1
+
+
 def decrease_hunger():
-    pet_variables.pet_hunger = pet_variables.pet_hunger - 1
+    if pet_variables.pet_hunger > 0:
+        pet_variables.pet_hunger = pet_variables.pet_hunger - 1
 
 
 def decrease_happiness():
-    pet_variables.pet_happiness = pet_variables.pet_happiness - 1
+    if pet_variables.pet_happiness > 0:
+        pet_variables.pet_happiness = pet_variables.pet_happiness - 1
 
 
 def decrease_health():
-    pet_variables.pet_health = pet_variables.pet_health - 1
+    if pet_variables.pet_health > 0:
+        pet_variables.pet_health = pet_variables.pet_health - 1
 
 
 def decrease_stats():
@@ -85,19 +102,17 @@ def decrease_stats():
 
 
 # Increases the pets hungriness by +1 unless the hunger is bigger than
-# the pet's maximum hunger. In this case the pet womits and looses hunger
+# the pet's maximum hunger. In this case the pet will vomit and looses hunger
 # and health.
-def feading():
-    pet_variables.pet_hunger
+def feeding():
     print("Hungriness of " + pet_variables.pet_name + ": " + pet_variables.pet_hunger * "*")
-    feading_confirmed = input("Do you want to feed your pet?")
-    if feading_confirmed in ("Y", "y"):
-        pet_variables.pet_hunger = pet_variables.pet_hunger + 1
+    feeding_confirmed = input("Do you want to feed your pet?")
+    if feeding_confirmed in ("Y", "y"):
+        increase_hunger()
 
 
 # A simple guessing game which increases the pet's happiness
 def playing():
-    pet_variables.pet_happiness
     guess = 0
     while guess != secret:
         g = input("Guess the Number")
@@ -109,5 +124,5 @@ def playing():
                 print("Your guess is too high")
             else:
                 print("Too low")
-    pet_variables.pet_happiness = pet_variables.pet_happiness + 1
+    increase_happiness()
     print("Game over!")
