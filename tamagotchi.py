@@ -12,7 +12,7 @@ beginning_finished = False
 while pet_functions.is_alive():         
     t = threading.Thread(target=pet_functions.decrease_stats)
     t.start()
-    if beginning_finished == False:
+    if not beginning_finished:
         #Let the player choose his pet and skip the beginning from then on.
         pet_functions.beginning()
         beginning_finished = True
@@ -29,7 +29,7 @@ while pet_functions.is_alive():
     print("What would you like to do?")
     print("1: Feading, 2: Playing, 3: Show Stats")
     #Start the chosen activity and go back to the activity selector.
-    chosen_activity = int(input("Choose the decired activity:"))
+    chosen_activity = int(input("Choose the desired activity:"))
     if chosen_activity == 1:
         pet_functions.feading()
     elif chosen_activity == 2:
