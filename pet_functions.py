@@ -47,10 +47,6 @@ def beginning():
 # A function which changes the status of the pet depending of the age value.
 # Each status has it's own characteristics.
 def aging():
-    pet_variables.pet_status
-    pet_variables.max_health
-    pet_variables.max_happiness
-    pet_variables.max_hunger
     if pet_variables.pet_age == 5:
         pet_variables.pet_status = "adult"
         pet_variables.max_health = 10
