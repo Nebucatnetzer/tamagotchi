@@ -93,7 +93,7 @@ def decrease_health():
 
 
 def decrease_stats():
-    while True:
+    while pet_variables.beginning_finished:
         time.sleep(15)
         decrease_hunger()
         if pet_variables.pet_hunger <= 0:
