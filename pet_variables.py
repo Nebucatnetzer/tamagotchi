@@ -12,8 +12,11 @@ max_health = 5
 max_hunger = 5
 max_happiness = 10
 
-# Pictures and symboles used ingame
+# Pictures and symbols used ingame
 cat = "(=^o.o^=)__"
 mouse = "<:3 )~~~~"
 fish = "<`)))><"
 owl = "(^0M0^)"
+
+# programme variables
+beginning_finished = False

@@ -27,8 +27,7 @@ tamagotchi programme which shouldn't be too hard:
 * add a function let the user exit the game
 * safe the stats in a text file
 
-##30.6.2015
-
+## 30.6.2015
 Time function has to be implemented otherwise the decrease.* functions won't work. 
 It seems to work however the import time part has to go into the pet_functions.py file.
 Maybe I should move all the imports to that file otherwise it's not clear why they are needed.
@@ -38,9 +37,10 @@ And added the time import. Things are working now like intended.
 However the pet doesn't get updated automatically. I currently don't know how to achieve that.
 I'll have to ask reddit how to do it.
 
-##6.7.2015
-
+## 06.07.2015
 I've written a function to decrease the stats in the background. Means the tamagotchi can now get hungry etc.
 However it currently doesn't work. I don't know why atm. If you call it independently it works just fine.
 
 In addition I've cleaned up the code a bit and made sure that the stats variables don't fall under 0 because that might cause some problems in the future.
+
+## 07.07.2015
