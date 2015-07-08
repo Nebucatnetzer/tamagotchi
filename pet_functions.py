@@ -93,6 +93,8 @@ def decrease_health():
         pet_variables.pet_health = pet_variables.pet_health - 1
 
 
+# The function to decrease the stats and make the pet "live" needs to
+# run in the background.
 def decrease_stats():
     while True:
         time.sleep(15)
@@ -102,9 +104,16 @@ def decrease_stats():
             decrease_happiness()
 
 
+### Activities ###
+
 # Increases the pets hungriness by +1 unless the hunger is bigger than
 # the pet's maximum hunger. In this case the pet will vomit and looses hunger
 # and health.
+
+def stroking():
+    print("You're stroking the back of your pet gently.")
+    print("It makes comforting noises and leans against your hand.")
+
 def feeding():
     print("Hungriness of " + pet_variables.pet_name + ": " + pet_variables.pet_hunger * "*")
     feeding_confirmed = input("Do you want to feed your pet?")
