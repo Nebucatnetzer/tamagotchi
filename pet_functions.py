@@ -42,6 +42,7 @@ def beginning():
         pet_variables.pet_photo = fish
     elif chosen_pet == 4:
         pet_variables.pet_photo = owl
+    pet_variables.pet_name = input("How do you want to call your pet?")
 
 
 # A function which changes the status of the pet depending of the age value.
@@ -93,7 +94,7 @@ def decrease_health():
 
 
 def decrease_stats():
-    while pet_variables.beginning_finished:
+    while True:
         time.sleep(15)
         decrease_hunger()
         if pet_variables.pet_hunger <= 0:
