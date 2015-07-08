@@ -22,17 +22,18 @@ tamagotchi programme which shouldn't be too hard:
 * ~~let it age~~
 * decrease the hunger value after x seconds
 * add sleep function, you have to switch the lights off otherwise it will have nightmare and loose one health point.
-* add the possibility to get sick. Maybe compare two random numbers. 
-* add a function to restart the game or exit it after the pet died. 
+* add the possibility to get sick. Maybe compare two random numbers.
+* add a function to restart the game or exit it after the pet died.
 * add a function let the user exit the game
 * safe the stats in a text file
 
 ## 30.6.2015
-Time function has to be implemented otherwise the decrease.* functions won't work. 
-It seems to work however the import time part has to go into the pet_functions.py file.
-Maybe I should move all the imports to that file otherwise it's not clear why they are needed.
+Time function has to be implemented otherwise the decrease.* functions
+won't work. It seems to work however the import time part has to go into
+the pet_functions.py file. Maybe I should move all the imports to that
+file otherwise it's not clear why they are needed.
 
-Moved all the imports to there relevant place 
+Moved all the imports to there relevant place
 And added the time import. Things are working now like intended.
 However the pet doesn't get updated automatically. I currently don't know how to achieve that.
 I'll have to ask reddit how to do it.
