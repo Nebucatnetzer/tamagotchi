@@ -6,6 +6,7 @@ pet_health = 5
 pet_age = 0
 pet_hunger = 5
 pet_happiness = 5
+pet_stomach = 0
 
 # age based max values
 max_health = 5
