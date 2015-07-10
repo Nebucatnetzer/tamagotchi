@@ -1,6 +1,7 @@
 import pet_variables
 import time
 from random import randint
+import os
 
 # Pictures and symboles used ingame
 cat = "(=^o.o^=)__"
@@ -12,6 +13,7 @@ secret = randint(1, 10)
 
 
 def pet_stats():
+    os.system('clear') #for Linux
     print(pet_variables.pet_name)
     print(pet_variables.pet_photo)
     print("Status: " + pet_variables.pet_status)
@@ -111,6 +113,7 @@ def decrease_stats():
 # and health.
 
 def stroking():
+    os.system('clear') #for Linux
     print()
     print("You're stroking the back of your pet gently.")
     print("It makes comforting noises and leans against your hand.")
