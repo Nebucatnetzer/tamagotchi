@@ -57,3 +57,5 @@ too easy.
 ## 12.07.2015
 Added the function to poke the pet and it will speak.
 If you poke to many times it will get angry.
+I added as well a function  which will let the pet sleep.
+However atm it doesn't work as intended.
