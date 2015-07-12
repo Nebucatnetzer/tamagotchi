@@ -15,9 +15,9 @@ from pygame import mixer
 # variables needed for the guessing game
 secret = randint(1, 10)
 
-### Functions providing the basic function of the programm
+### Functions providing the basic function of the programme ###
 
-# a function which displays the pet's stats in a nice way.'
+# a function which displays the pet's stats in a nice way.
 def pet_stats():
     os.system('clear')
     print(pet_variables.pet_name)
@@ -71,13 +71,16 @@ def aging():
         print("Congratulation your pet has become an elderly it needs now less food.")
         print("However it's health is worse and it's grumpier than an adult.")
 
+
 ### Functions to increase and decrease stats ###
 
 def increase_hunger():
     pet_variables.pet_hunger = pet_variables.pet_hunger + 1
 
+
 def increase_poke_count():
     pet_variables.poke_count = pet_variables.poke_count + 1
+
 
 def increase_happiness():
     if pet_variables.pet_happiness < pet_variables.max_happiness:
@@ -103,8 +106,10 @@ def decrease_health():
     if pet_variables.pet_health > 0:
         pet_variables.pet_health = pet_variables.pet_health - 1
 
+
 def decrease_poke_count():
     pet_variables.poke_count = pet_variables.poke_count - 1
+
 
 # The function to decrease the stats and make the pet "live" needs to
 # run in the background.
@@ -128,6 +133,7 @@ def stroking():
     print("You're stroking the back of your pet gently.")
     print("It makes comforting noises and leans against your hand.")
     time.sleep(1)
+
 
 # Increases the pets hungriness by +1 unless the hunger is bigger than
 # the pet's maximum hunger. In this case the pet will vomit and looses hunger
@@ -157,6 +163,7 @@ def playing():
     increase_happiness()
     print("Game over!")
 
+
 # let's you poke the pet and it will talk
 # if you poke it more than 3 times it will get angry at you
 def poking():
@@ -175,6 +182,7 @@ def poking():
         mixer.music.load('angry.mp3')
         mixer.music.play()
         time.sleep(3)
+
 
 # A function which let's the pet sleep and regenerates it's stats
 def sleeping():
