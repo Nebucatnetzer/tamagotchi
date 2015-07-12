@@ -7,11 +7,9 @@
 Some interesting things I could add to the
 tamagotchi programme which shouldn't be too hard:
 
-* poke it to make it speak, pokes let it loose a happiness point
 * sleeping with all values with over 50% full heals the pet if it has lost health
 * add pooping and cleaning function
 * let it get sick if it's health is low, by random chance or if there's too much poop
-* decrease the hunger value after x seconds
 * add sleep function, you have to switch the lights off otherwise it will have nightmare and loose one health point.
 * add the possibility to get sick. Maybe compare two random numbers.
 * add a function to restart the game or exit it after the pet died.
@@ -56,3 +54,6 @@ The feature to the pet the pet will be so that it only prints a message.
 It wouldn't be fun if it would increase happiness because that would be
 too easy.
 
+## 12.07.2015
+Added the function to poke the pet and it will speak.
+If you poke to many times it will get angry.

@@ -29,9 +29,10 @@ while pet_functions.is_alive():
     print()
     # Present the player with activities to choose from
     print("What would you like to do?")
-    print("1: Feeding, 2: Playing, 3: Stroke Pet, 4: Show Stats")
     # Start the chosen activity and go back to the activity selector.
-    try:    
+    print("1: Feeding, 2: Playing, 3: Stroke Pet,")
+    print("4: Poking, 5: Show Stats,")
+    try:
         chosen_activity = int(input("Choose the desired activity:"))
         if chosen_activity == 1:
             pet_functions.feeding()
@@ -40,6 +41,8 @@ while pet_functions.is_alive():
         elif chosen_activity == 3:
             pet_functions.stroking()
         elif chosen_activity == 4:
+            pet_functions.poking()
+        elif chosen_activity == 5:
             pet_functions.pet_stats()
     except ValueError:
         pet_functions.pet_stats()

@@ -1,14 +1,25 @@
+# imports the global variables
 import pet_variables
+# imports the time library needed to delay certain functions
 import time
+# imports the random library needed to generate a random number for
+# the guessing game
 from random import randint
+# imports the os library needed to clear the terminal
 import os
+# imports the pygame library needed to play the sound in the
+# poking function
+from pygame import mixer
+
 
 # variables needed for the guessing game
 secret = randint(1, 10)
 
+### Functions providing the basic function of the programm
 
+# a function which displays the pet's stats in a nice way.'
 def pet_stats():
-    os.system('clear') #for Linux
+    os.system('clear')
     print(pet_variables.pet_name)
     print(pet_variables.pet_photo)
     print("Status: " + pet_variables.pet_status)
@@ -60,10 +71,13 @@ def aging():
         print("Congratulation your pet has become an elderly it needs now less food.")
         print("However it's health is worse and it's grumpier than an adult.")
 
+### Functions to increase and decrease stats ###
 
 def increase_hunger():
     pet_variables.pet_hunger = pet_variables.pet_hunger + 1
 
+def increase_poke_count():
+    pet_variables.poke_count = pet_variables.poke_count + 1
 
 def increase_happiness():
     if pet_variables.pet_happiness < pet_variables.max_happiness:
@@ -89,6 +103,8 @@ def decrease_health():
     if pet_variables.pet_health > 0:
         pet_variables.pet_health = pet_variables.pet_health - 1
 
+def decrease_poke_count():
+    pet_variables.poke_count = pet_variables.poke_count - 1
 
 # The function to decrease the stats and make the pet "live" needs to
 # run in the background.
@@ -96,6 +112,7 @@ def decrease_stats():
     while True:
         time.sleep(15)
         decrease_hunger()
+        decrease_poke_count()
         if pet_variables.pet_hunger <= 0:
             decrease_health()
             decrease_happiness()
@@ -103,18 +120,20 @@ def decrease_stats():
 
 ### Activities ###
 
-# Increases the pets hungriness by +1 unless the hunger is bigger than
-# the pet's maximum hunger. In this case the pet will vomit and looses hunger
-# and health.
-
+# A function which simulates stroking it doesn't have any
+# effect on the pet.
 def stroking():
-    os.system('clear') #for Linux
+    os.system('clear')
     print()
     print("You're stroking the back of your pet gently.")
     print("It makes comforting noises and leans against your hand.")
     time.sleep(1)
 
+# Increases the pets hungriness by +1 unless the hunger is bigger than
+# the pet's maximum hunger. In this case the pet will vomit and looses hunger
+# and health.
 def feeding():
+    os.system('clear')
     print("Hungriness of " + pet_variables.pet_name + ": " + pet_variables.pet_hunger * "*")
     feeding_confirmed = input("Do you want to feed your pet?")
     if feeding_confirmed in ("Y", "y"):
@@ -124,6 +143,7 @@ def feeding():
 # A simple guessing game which increases the pet's happiness
 def playing():
     guess = 0
+    os.system('clear')
     while guess != secret:
         g = input("Guess the Number")
         guess = int(g)
@@ -136,3 +156,22 @@ def playing():
                 print("Too low")
     increase_happiness()
     print("Game over!")
+
+# let's you poke the pet and it will talk
+# if you poke it more than 3 times it will get angry at you
+def poking():
+    os.system('clear')
+    if pet_variables.poke_count < 4:
+        print("You poke " + pet_variables.pet_name + " and it starts to speak.")
+        pet_variables.increase_poke_count()
+        mixer.init()
+        mixer.music.load('happy.mp3')
+        mixer.music.play()
+        time.sleep(5)
+    else:
+        print("You annoyed " + pet_variables.pet_name + "." + " It got angry at you.")
+        decrease_happiness()
+        mixer.init()
+        mixer.music.load('angry.mp3')
+        mixer.music.play()
+        time.sleep(3)
