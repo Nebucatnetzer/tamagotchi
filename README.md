@@ -1,7 +1,6 @@
 # tamagotchi
 
 ## Todo
-* make the aging work parallel the main programme
 * adding a function to decrease the health
 
 ## Possible things to add
@@ -28,6 +27,7 @@ tamagotchi programme which shouldn't be too hard:
 * safe the stats in a text file
 * make a seperate function for each age because it makes the aging
 funciton more readable
+* add a function which lets the tamagotchi age (one week as a youngling, three weeks as an adult and two weeks as an elderly)
 
 ## 30.6.2015
 Time function has to be implemented otherwise the decrease.* functions

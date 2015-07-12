@@ -3,11 +3,6 @@ import time
 from random import randint
 import os
 
-# Pictures and symboles used ingame
-cat = "(=^o.o^=)__"
-mouse = "<:3 )~~~~"
-fish = "<`)))><"
-owl = "(^0M0^)"
 # variables needed for the guessing game
 secret = randint(1, 10)
 
@@ -37,13 +32,13 @@ def beginning():
     print("1: Cat, 2: Mouse, 3: Fish, 4: Owl")
     chosen_pet = int(input("Choose your pet:"))
     if chosen_pet == 1:
-        pet_variables.pet_photo = cat
+        pet_variables.pet_photo = pet_variables.cat
     elif chosen_pet == 2:
-        pet_variables.pet_photo = mouse
+        pet_variables.pet_photo = pet_variables.mouse
     elif chosen_pet == 3:
-        pet_variables.pet_photo = fish
+        pet_variables.pet_photo = pet_variables.fish
     elif chosen_pet == 4:
-        pet_variables.pet_photo = owl
+        pet_variables.pet_photo = pet_variables.owl
     pet_variables.pet_name = input("How do you want to call your pet?")
 
 
