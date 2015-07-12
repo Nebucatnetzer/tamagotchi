@@ -15,7 +15,9 @@ from pygame import mixer
 # variables needed for the guessing game
 secret = randint(1, 10)
 
+### Functions providing the basic function of the programm
 
+# a function which displays the pet's stats in a nice way.'
 def pet_stats():
     os.system('clear')
     print(pet_variables.pet_name)
@@ -69,6 +71,7 @@ def aging():
         print("Congratulation your pet has become an elderly it needs now less food.")
         print("However it's health is worse and it's grumpier than an adult.")
 
+### Functions to increase and decrease stats ###
 
 def increase_hunger():
     pet_variables.pet_hunger = pet_variables.pet_hunger + 1
@@ -117,10 +120,8 @@ def decrease_stats():
 
 ### Activities ###
 
-# Increases the pets hungriness by +1 unless the hunger is bigger than
-# the pet's maximum hunger. In this case the pet will vomit and looses hunger
-# and health.
-
+# A function which simulates stroking it doesn't have any
+# effect on the pet.
 def stroking():
     os.system('clear')
     print()
@@ -128,6 +129,9 @@ def stroking():
     print("It makes comforting noises and leans against your hand.")
     time.sleep(1)
 
+# Increases the pets hungriness by +1 unless the hunger is bigger than
+# the pet's maximum hunger. In this case the pet will vomit and looses hunger
+# and health.
 def feeding():
     os.system('clear')
     print("Hungriness of " + pet_variables.pet_name + ": " + pet_variables.pet_hunger * "*")
