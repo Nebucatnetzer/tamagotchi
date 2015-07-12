@@ -1,17 +1,15 @@
 import pet_variables
 import time
 from random import randint
+import os
+from pygame import mixer
 
-# Pictures and symboles used ingame
-cat = "(=^o.o^=)__"
-mouse = "<:3 )~~~~"
-fish = "<`)))><"
-owl = "(^0M0^)"
 # variables needed for the guessing game
 secret = randint(1, 10)
 
 
 def pet_stats():
+    os.system('clear') #for Linux
     print(pet_variables.pet_name)
     print(pet_variables.pet_photo)
     print("Status: " + pet_variables.pet_status)
@@ -35,13 +33,13 @@ def beginning():
     print("1: Cat, 2: Mouse, 3: Fish, 4: Owl")
     chosen_pet = int(input("Choose your pet:"))
     if chosen_pet == 1:
-        pet_variables.pet_photo = cat
+        pet_variables.pet_photo = pet_variables.cat
     elif chosen_pet == 2:
-        pet_variables.pet_photo = mouse
+        pet_variables.pet_photo = pet_variables.mouse
     elif chosen_pet == 3:
-        pet_variables.pet_photo = fish
+        pet_variables.pet_photo = pet_variables.fish
     elif chosen_pet == 4:
-        pet_variables.pet_photo = owl
+        pet_variables.pet_photo = pet_variables.owl
     pet_variables.pet_name = input("How do you want to call your pet?")
 
 
@@ -111,8 +109,11 @@ def decrease_stats():
 # and health.
 
 def stroking():
+    os.system('clear') #for Linux
+    print()
     print("You're stroking the back of your pet gently.")
     print("It makes comforting noises and leans against your hand.")
+    time.sleep(1)
 
 def feeding():
     print("Hungriness of " + pet_variables.pet_name + ": " + pet_variables.pet_hunger * "*")
@@ -136,3 +137,12 @@ def playing():
                 print("Too low")
     increase_happiness()
     print("Game over!")
+
+# let's you poke the pet and it will talk
+# if you poke it more than 3 times it will get angry at you
+def poking():
+    print("You poke " + pet_variables.pet_name + " and it starts to speak.")
+    mixer.init()
+    mixer.music.load('sound.mp3')
+    mixer.music.play()
+    time.sleep(5)
