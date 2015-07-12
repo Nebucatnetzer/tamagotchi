@@ -165,9 +165,9 @@ def poking():
         mixer.music.play()
         time.sleep(5)
     else:
-        print("You annoyed " + pet_variables.pet_name "It got angry at you.")
+        print("You annoyed " + pet_variables.pet_name + "." + " It got angry at you.")
         decrease_happiness()
         mixer.init()
         mixer.music.load('angry.mp3')
         mixer.music.play()
-        time.sleep(5)
+        time.sleep(3)
