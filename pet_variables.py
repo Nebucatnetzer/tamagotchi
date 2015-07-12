@@ -22,3 +22,4 @@ owl = "(^0M0^)"
 # programme variables
 beginning_finished = False
 poke_count = 0
+day = 15

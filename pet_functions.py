@@ -110,7 +110,7 @@ def decrease_poke_count():
 # run in the background.
 def decrease_stats():
     while True:
-        time.sleep(15)
+        time.sleep(pet_variables.day)
         decrease_hunger()
         decrease_poke_count()
         if pet_variables.pet_hunger <= 0:
@@ -163,7 +163,7 @@ def poking():
     os.system('clear')
     if pet_variables.poke_count < 4:
         print("You poke " + pet_variables.pet_name + " and it starts to speak.")
-        pet_variables.increase_poke_count()
+        increase_poke_count()
         mixer.init()
         mixer.music.load('happy.mp3')
         mixer.music.play()
@@ -175,3 +175,12 @@ def poking():
         mixer.music.load('angry.mp3')
         mixer.music.play()
         time.sleep(3)
+
+# A function which let's the pet sleep and regenerates it's stats
+def sleeping():
+    os.system('clear')
+    print("Your pet is sleeping now.")
+    if pet_variables.max_hunger / pet_variables.pet_hunger > 0.5:
+        print("Sleeping works")
+    else:
+        print("Something is broken")
