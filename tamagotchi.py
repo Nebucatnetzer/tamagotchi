@@ -32,6 +32,8 @@ while pet_functions.is_alive():
     print("1: Feeding, 2: Playing, 3: Stroke Pet,")
     print("4: Stroking, 5: Show Stats,")
     # Start the chosen activity and go back to the activity selector.
+    print("1: Feeding, 2: Playing, 3: Stroke Pet, 4: Show Stats")
+    # Start the chosen activity and go back to the activity selector.
     try:
         chosen_activity = int(input("Choose the desired activity:"))
         if chosen_activity == 1:

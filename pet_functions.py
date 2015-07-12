@@ -1,8 +1,16 @@
+# imports the global variables
 import pet_variables
+# imports the time library needed to delay certain functions
 import time
+# imports the random library needed to generate a random number for
+# the guessing game
 from random import randint
+# imports the os library needed to clear the terminal
 import os
+# imports the pygame library needed to play the sound in the
+# poking function
 from pygame import mixer
+
 
 # variables needed for the guessing game
 secret = randint(1, 10)
