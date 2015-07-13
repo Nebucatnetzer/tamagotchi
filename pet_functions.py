@@ -192,3 +192,4 @@ def sleeping():
         print("Sleeping works")
     else:
         print("Something is broken")
+    time.sleep(3)
