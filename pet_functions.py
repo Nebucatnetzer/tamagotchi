@@ -92,7 +92,8 @@ def aging():
 ### Functions to increase and decrease stats ###
 
 def increase_hunger():
-    pet_variables.pet_hunger = pet_variables.pet_hunger + 1
+    if pet_variables.pet_hunger < pet_variables.max_hunger:
+        pet_variables.pet_hunger = pet_variables.pet_hunger + 1
 
 
 def increase_poke_count():
@@ -134,7 +135,6 @@ def decrease_stats():
     while True:
         time.sleep(pet_variables.day)
         decrease_hunger()
-        decrease_poke_count()
         if pet_variables.pet_hunger <= 0:
             decrease_health()
             decrease_happiness()
@@ -185,7 +185,7 @@ def playing():
 # if you poke it more than 3 times it will get angry at you
 def poking():
     os.system('clear')
-    if pet_variables.poke_count < 4:
+    if pet_variables.poke_count < 3:
         print("You poke " + pet_variables.pet_name + " and it starts to speak.")
         increase_poke_count()
         mixer.init()
