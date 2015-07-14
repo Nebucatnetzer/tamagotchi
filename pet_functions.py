@@ -55,19 +55,36 @@ def beginning():
 
 # A function which changes the status of the pet depending of the age value.
 # Each status has it's own characteristics.
+
+def set_youngling_stats():
+    pet_variables.max_health = 10
+    pet_variables.max_happiness = 8
+    pet_variables.max_hunger = 7
+
+def set_adult_stats():
+    pet_variables.max_health = 10
+    pet_variables.max_happiness = 8
+    pet_variables.max_hunger = 7
+
+def set_elderly_stats():
+    pet_variables.max_health = 7
+    pet_variables.max_happiness = 5
+    pet_variables.max_hunger = 10
+
+def reset_stats():
+    pet_variables.pet_health = pet_variables.max_health
+    pet_variables.pet_happiness = pet_variables.max_happiness
+    pet_variables.pet_hunger = pet_variables.max_hunger
+
 def aging():
     if pet_variables.pet_age == 5:
         pet_variables.pet_status = "adult"
-        pet_variables.max_health = 10
-        pet_variables.max_happiness = 8
-        pet_variables.max_hunger = 7
+        set_adult_stats()
         print("Congratulation your pet has become an adult. It needs less food now")
         print("and it's health has improved however it's grumpier than a youngling.")
     elif pet_variables.pet_age == 15:
         pet_variables.pet_status = "elderly"
-        pet_variables.max_health = 7
-        pet_variables.max_happiness = 5
-        pet_variables.max_hunger = 10
+        set_elderly_stats()
         print("Congratulation your pet has become an elderly it needs now less food.")
         print("However it's health is worse and it's grumpier than an adult.")
 
@@ -75,7 +92,8 @@ def aging():
 ### Functions to increase and decrease stats ###
 
 def increase_hunger():
-    pet_variables.pet_hunger = pet_variables.pet_hunger + 1
+    if pet_variables.pet_hunger < pet_variables.max_hunger:
+        pet_variables.pet_hunger = pet_variables.pet_hunger + 1
 
 
 def increase_poke_count():
@@ -117,7 +135,6 @@ def decrease_stats():
     while True:
         time.sleep(pet_variables.day)
         decrease_hunger()
-        decrease_poke_count()
         if pet_variables.pet_hunger <= 0:
             decrease_health()
             decrease_happiness()
@@ -168,7 +185,7 @@ def playing():
 # if you poke it more than 3 times it will get angry at you
 def poking():
     os.system('clear')
-    if pet_variables.poke_count < 4:
+    if pet_variables.poke_count < 3:
         print("You poke " + pet_variables.pet_name + " and it starts to speak.")
         increase_poke_count()
         mixer.init()
@@ -188,8 +205,10 @@ def poking():
 def sleeping():
     os.system('clear')
     print("Your pet is sleeping now.")
+    time.sleep(10)
     if pet_variables.max_hunger / pet_variables.pet_hunger > 0.5:
-        print("Sleeping works")
+        reset_stats()
+        print("Your pet woke up feeling rested and in a good mood.")
     else:
-        print("Something is broken")
+        print("Your pet has woken up.")
     time.sleep(3)
