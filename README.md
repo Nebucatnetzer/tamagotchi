@@ -20,7 +20,7 @@ funciton more readable
 * add a function which lets the tamagotchi age (one week as a youngling, three weeks as an adult and two weeks as an elderly)
 
 ## 30.6.2015
-Time function has to be implemented otherwise the decrease.* functions
+Time function has to be implemented otherwise the decrease functions
 won't work. It seems to work however the import time part has to go into
 the pet_functions.py file. Maybe I should move all the imports to that
 file otherwise it's not clear why they are needed.

@@ -31,11 +31,8 @@ def pet_stats():
 
 # A function which checks if the pet is still alive
 def is_alive():
-    if pet_variables.pet_health > 0:
-        return True
-    else:
-        return False
-
+    return pet_variables.pet_health > 0:
+    
 
 # A function which let's the player choose his pet.
 def beginning():
@@ -60,7 +57,7 @@ def set_youngling_stats():
     pet_variables.max_health = 10
     pet_variables.max_happiness = 8
     pet_variables.max_hunger = 7
-    
+
 def set_adult_stats():
     pet_variables.max_health = 10
     pet_variables.max_happiness = 8
@@ -70,7 +67,7 @@ def set_elderly_stats():
     pet_variables.max_health = 7
     pet_variables.max_happiness = 5
     pet_variables.max_hunger = 10
-        
+
 def reset_stats():
     pet_variables.pet_health = pet_variables.max_health
     pet_variables.pet_happiness = pet_variables.max_happiness
@@ -93,40 +90,40 @@ def aging():
 
 def increase_hunger():
     if pet_variables.pet_hunger < pet_variables.max_hunger:
-        pet_variables.pet_hunger = pet_variables.pet_hunger + 1
+        pet_variables.pet_hunger += 1
 
 
 def increase_poke_count():
-    pet_variables.poke_count = pet_variables.poke_count + 1
+    pet_variables.poke_count += 1
 
 
 def increase_happiness():
     if pet_variables.pet_happiness < pet_variables.max_happiness:
-        pet_variables.pet_happiness = pet_variables.pet_happiness + 1
+        pet_variables.pet_happiness += 1
 
 
 def increase_health():
     if pet_variables.pet_health < pet_variables.max_health:
-        pet_variables.pet_health = pet_variables.pet_health + 1
+        pet_variables.pet_health += 1
 
 
 def decrease_hunger():
     if pet_variables.pet_hunger > 0:
-        pet_variables.pet_hunger = pet_variables.pet_hunger - 1
+        pet_variables.pet_hunger -= 1
 
 
 def decrease_happiness():
     if pet_variables.pet_happiness > 0:
-        pet_variables.pet_happiness = pet_variables.pet_happiness - 1
+        pet_variables.pet_happiness -= 1
 
 
 def decrease_health():
     if pet_variables.pet_health > 0:
-        pet_variables.pet_health = pet_variables.pet_health - 1
+        pet_variables.pet_health -= 1
 
 
 def decrease_poke_count():
-    pet_variables.poke_count = pet_variables.poke_count - 1
+    pet_variables.poke_count -= 1
 
 
 # The function to decrease the stats and make the pet "live" needs to
