@@ -31,7 +31,7 @@ def pet_stats():
 
 # A function which checks if the pet is still alive
 def is_alive():
-    return pet_variables.pet_health > 0:
+    return pet_variables.pet_health > 0
     
 
 # A function which let's the player choose his pet.
