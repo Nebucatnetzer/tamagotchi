@@ -15,6 +15,7 @@ from pygame import mixer
 # variables needed for the guessing game
 secret = randint(1, 10)
 
+
 ### Functions providing the basic function of the programme ###
 
 # a function which displays the pet's stats in a nice way.
@@ -32,7 +33,7 @@ def pet_stats():
 # A function which checks if the pet is still alive
 def is_alive():
     return pet_variables.pet_health > 0
-    
+
 
 # A function which let's the player choose his pet.
 def beginning():
@@ -58,20 +59,24 @@ def set_youngling_stats():
     pet_variables.max_happiness = 8
     pet_variables.max_hunger = 7
 
+
 def set_adult_stats():
     pet_variables.max_health = 10
     pet_variables.max_happiness = 8
     pet_variables.max_hunger = 7
+
 
 def set_elderly_stats():
     pet_variables.max_health = 7
     pet_variables.max_happiness = 5
     pet_variables.max_hunger = 10
 
+
 def reset_stats():
     pet_variables.pet_health = pet_variables.max_health
     pet_variables.pet_happiness = pet_variables.max_happiness
     pet_variables.pet_hunger = pet_variables.max_hunger
+
 
 def aging():
     if pet_variables.pet_age == 5:
