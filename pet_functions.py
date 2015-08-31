@@ -136,8 +136,8 @@ class Pet(object):
             time.sleep(15)
             self.decrease_hunger()
             if self.hunger <= 0:
-                decrease_health()
-                decrease_happiness()
+               self.decrease_health()
+               self.decrease_happiness()
 
 
   ### Activities ###

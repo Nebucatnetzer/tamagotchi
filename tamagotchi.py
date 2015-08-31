@@ -14,9 +14,11 @@ fish = "<`)))><"
 owl = "(^0M0^)"
 
 # initializing the tamagotchi
-tamagotchi = Pet(name="empty", photo="empty", status="youngling", age=0, health=5, hunger=5, happiness=5, max_happiness=10, max_health=5, max_hunger=5, poke_count=0)
+tamagotchi = Pet(name="empty", photo="empty", status="youngling", age=0, health=5, hunger=5, happiness=5,
+                 max_happiness=10, max_health=5, max_hunger=5, poke_count=0)
 
- # A function which let's the player choose his pet.
+
+# A function which let's the player choose his pet.
 def beginning():
     global beginning_finished
     print("Which pet do you want to look after?")
@@ -35,11 +37,12 @@ def beginning():
     tamagotchi.photo = pet_photo
     beginning_finished = True
 
+
 # Beginning of the main routine which makes up the actual game.
 
 # thread which runs in the background to cause hunger, etc
-#t = threading.Thread(target=tamagotchi.decrease_stats())
-#t.start()
+t = threading.Thread(target=tamagotchi.decrease_stats())
+t.start()
 # Only starts if the pet is still alive.
 while tamagotchi.is_alive():
     if not beginning_finished:
