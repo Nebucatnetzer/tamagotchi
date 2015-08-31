@@ -1,31 +1,59 @@
 # import the threading module
 import threading
-# import the pets_variables
-import pet_variables
 # a module which includes various custom functions
-import pet_functions
+from pet_functions import Pet
 
+# global variable need to lock the beginning
+beginning_finished = False
+day = 15
+
+# Pictures and symbols used ingame
+cat = "(=^o.o^=)__"
+mouse = "<:3 )~~~~"
+fish = "<`)))><"
+owl = "(^0M0^)"
+
+# initializing the tamagotchi
+tamagotchi = Pet(name="empty", photo="empty", status="youngling", age=0, health=5, hunger=5, happiness=5, max_happiness=10, max_health=5, max_hunger=5, poke_count=0)
+
+ # A function which let's the player choose his pet.
+def beginning():
+    global beginning_finished
+    print("Which pet do you want to look after?")
+    print("1: Cat, 2: Mouse, 3: Fish, 4: Owl")
+    chosen_pet = int(input("Choose your pet:"))
+    if chosen_pet == 1:
+        pet_photo = cat
+    elif chosen_pet == 2:
+        pet_photo = mouse
+    elif chosen_pet == 3:
+        pet_photo = fish
+    elif chosen_pet == 4:
+        pet_photo = owl
+    pet_name = input("How do you want to call your pet?")
+    tamagotchi.name = pet_name
+    tamagotchi.photo = pet_photo
+    beginning_finished = True
 
 # Beginning of the main routine which makes up the actual game.
 
 # thread which runs in the background to cause hunger, etc
-t = threading.Thread(target=pet_functions.decrease_stats)
-t.start()
+#t = threading.Thread(target=tamagotchi.decrease_stats())
+#t.start()
 # Only starts if the pet is still alive.
-while pet_functions.is_alive():
-    if not pet_variables.beginning_finished:
+while tamagotchi.is_alive():
+    if not beginning_finished:
         # Let the player choose his pet and skip the beginning from then on.
-        pet_functions.beginning()
-        pet_variables.beginning_finished = True
+        beginning()
         print()
         print()
         print("Your pet is currently a youngling which means it's needs a lot of attention.")
         print("Take good care of it or it will die very soon.")
     # checks if the pet has reached a new life stage and updates it accordingly
-    pet_functions.aging()
+    tamagotchi.aging()
     print()
     # Each round print the pets stats so that the player can see them.
-    pet_functions.pet_stats()
+    tamagotchi.display_stats()
     print()
     # Present the player with activities to choose from
     print("What would you like to do?")
@@ -35,17 +63,17 @@ while pet_functions.is_alive():
     try:
         chosen_activity = int(input("Choose the desired activity:"))
         if chosen_activity == 1:
-            pet_functions.feeding()
+            tamagotchi.feeding()
         elif chosen_activity == 2:
-            pet_functions.playing()
+            tamagotchi.playing()
         elif chosen_activity == 3:
-            pet_functions.stroking()
+            tamagotchi.stroking()
         elif chosen_activity == 4:
-            pet_functions.poking()
+            tamagotchi.poking()
         elif chosen_activity == 5:
-            pet_functions.sleeping()
+            tamagotchi.sleeping()
         elif chosen_activity == 6:
-            pet_functions.pet_stats()
+            tamagotchi.display_stats()
     except ValueError:
-        pet_functions.pet_stats()
+        tamagotchi.display_stats()
 print("Your pet died.")
