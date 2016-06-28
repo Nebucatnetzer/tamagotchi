@@ -35,30 +35,14 @@ def beginning():
     pet_name = input("How do you want to call your pet?")
     tamagotchi.name = pet_name
     tamagotchi.photo = pet_photo
+    print()
+    print()
+    print("Your pet is currently a youngling which means it's needs a lot of attention.")
+    print("Take good care of it or it will die very soon.")
     beginning_finished = True
 
-
-# Beginning of the main routine which makes up the actual game.
-
-# thread which runs in the background to cause hunger, etc
-t = threading.Thread(target=tamagotchi.decrease_stats())
-t.start()
-# Only starts if the pet is still alive.
-while tamagotchi.is_alive():
-    if not beginning_finished:
-        # Let the player choose his pet and skip the beginning from then on.
-        beginning()
-        print()
-        print()
-        print("Your pet is currently a youngling which means it's needs a lot of attention.")
-        print("Take good care of it or it will die very soon.")
-    # checks if the pet has reached a new life stage and updates it accordingly
-    tamagotchi.aging()
-    print()
-    # Each round print the pets stats so that the player can see them.
-    tamagotchi.display_stats()
-    print()
-    # Present the player with activities to choose from
+# Present the player with activities to choose from
+def menu():
     print("What would you like to do?")
     # Start the chosen activity and go back to the activity selector.
     print("1: Feeding, 2: Playing, 3: Stroke Pet,")
@@ -79,4 +63,24 @@ while tamagotchi.is_alive():
             tamagotchi.display_stats()
     except ValueError:
         tamagotchi.display_stats()
-print("Your pet died.")
+
+# Beginning of the main routine which makes up the actual game.
+
+# Only starts if the pet is still alive.
+def main():
+    while tamagotchi.is_alive():
+        if not beginning_finished:
+            # Let the player choose his pet and skip the beginning from then on.
+            beginning()
+            tamagotchi.decrease_stats()
+        # checks if the pet has reached a new life stage and updates it accordingly
+        tamagotchi.aging()
+        print()
+        # Each round print the pets stats so that the player can see them.
+        tamagotchi.display_stats()
+        print()
+        menu()
+    print("Your pet died.")
+
+
+if __name__ == "__main__": main()

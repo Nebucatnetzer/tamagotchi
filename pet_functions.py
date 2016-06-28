@@ -8,14 +8,15 @@ import os
 # imports the pygame library needed to play the sound in the
 # poking function
 from pygame import mixer
+import threading
 
 # variables needed for the guessing game
 secret = randint(1, 10)
 
+
 ### a class for controlling the pet ###
 
 class Pet(object):
-
     def __init__(self, name, photo, status, health, age, hunger, happiness, poke_count,
                  max_health, max_hunger, max_happiness):
         # The pet's stats
@@ -31,7 +32,6 @@ class Pet(object):
         self.max_hunger = max_hunger
         self.max_happiness = max_happiness
 
-
     # a function which displays the pet's stats in a nice way.
     def display_stats(self):
         os.system('clear')
@@ -43,11 +43,9 @@ class Pet(object):
         print("Hunger: " + self.hunger * "*")
         print("Happines: " + self.happiness * "☺")
 
-
     # A function which checks if the pet is still alive
     def is_alive(self):
         return self.health > 0
-
 
     # A function which changes the status of the pet depending of the age value.
     # Each status has it's own characteristics.
@@ -57,24 +55,20 @@ class Pet(object):
         self.max_happiness = 8
         self.max_hunger = 7
 
-
     def set_adult_stats(self):
         self.max_health = 10
         self.max_happiness = 8
         self.max_hunger = 7
-
 
     def set_elderly_stats(self):
         self.max_health = 7
         self.max_happiness = 5
         self.max_hunger = 10
 
-
     def reset_stats(self):
         self.health = self.max_health
         self.happiness = self.max_happiness
         self.hunger = self.max_hunger
-
 
     def aging(self):
         if self.age == 5:
@@ -88,59 +82,52 @@ class Pet(object):
             print("Congratulation your pet has become an elderly it needs now less food.")
             print("However it's health is worse and it's grumpier than an adult.")
 
-
     ### Functions to increase and decrease stats ###
 
     def increase_hunger(self):
         if self.hunger < self.max_hunger:
             self.hunger += 1
 
-
     def increase_poke_count(self):
         self.poke_count += 1
-
 
     def increase_happiness(self):
         if self.happiness < self.max_happiness:
             self.happiness += 1
 
-
     def increase_health(self):
         if self.health < self.max_health:
             self.health += 1
-
 
     def decrease_hunger(self):
         if self.hunger > 0:
             self.hunger -= 1
 
-
     def decrease_happiness(self):
         if self.happiness > 0:
             self.happiness -= 1
-
 
     def decrease_health(self):
         if self.health > 0:
             self.health -= 1
 
-
     def decrease_poke_count(self):
         self.poke_count -= 1
 
-
     # The function to decrease the stats and make the pet "live" needs to
     # run in the background.
-    def decrease_stats(self):
+    def _decrease_stats(self):
         while True:
-            time.sleep(15)
+            time.sleep(2)
             self.decrease_hunger()
             if self.hunger <= 0:
-               self.decrease_health()
-               self.decrease_happiness()
+                self.decrease_health()
+                self.decrease_happiness()
 
+    def decrease_stats(self):
+        threading.Thread(target=self.decrease_stats).start()
 
-  ### Activities ###
+        ### Activities ###
 
     # A function which simulates stroking it doesn't have any
     # effect on the pet.
@@ -151,7 +138,6 @@ class Pet(object):
         print("It makes comforting noises and leans against your hand.")
         time.sleep(1)
 
-
     # Increases the pets hungriness by +1 unless the hunger is bigger than
     # the pet's maximum hunger. In this case the pet will vomit and looses hunger
     # and health.
@@ -161,7 +147,6 @@ class Pet(object):
         feeding_confirmed = input("Do you want to feed your pet?")
         if feeding_confirmed in ("Y", "y"):
             self.increase_hunger()
-
 
     # A simple guessing game which increases the pet's happiness
     def playing(self):
@@ -179,7 +164,6 @@ class Pet(object):
                     print("Too low")
         self.increase_happiness()
         print("Game over!")
-
 
     # let's you poke the pet and it will talk
     # if you poke it more than 3 times it will get angry at you
@@ -199,7 +183,6 @@ class Pet(object):
             mixer.music.load('angry.mp3')
             mixer.music.play()
             time.sleep(3)
-
 
     # A function which let's the pet sleep and regenerates it's stats
     def sleeping(self):
