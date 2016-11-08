@@ -1,3 +1,4 @@
+# #!/usr/bin/env python3
 # imports the global variables
 import pet_variables
 # imports the time library needed to delay certain functions

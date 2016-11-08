@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # The pet's stats
 pet_name = "Fluffy"
 pet_photo = "<`)))><"

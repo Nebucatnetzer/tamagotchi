@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # import the threading module
 import threading
 # import the pets_variables
