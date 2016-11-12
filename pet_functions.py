@@ -26,7 +26,7 @@ def pet_stats():
     print(pet_variables.pet_photo)
     print("Status: " + pet_variables.pet_status)
     print("Age: " + str(pet_variables.pet_age))
-    print("Health: " + pet_variables.pet_health * "♥")
+    print("Health: " + pet_variables.pet_health * "♥ ")
     print("Hunger: " + pet_variables.pet_hunger * "*")
     print("Happines: " + pet_variables.pet_happiness * "☺ ")
 
