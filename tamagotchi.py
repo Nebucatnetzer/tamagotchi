@@ -20,7 +20,8 @@ while pet_functions.is_alive():
         pet_variables.beginning_finished = True
         print()
         print()
-        print("Your pet is currently a youngling which means it's needs a lot of attention.")
+        print("Your pet is currently a youngling which means \
+                it's needs a lot of attention.")
         print("Take good care of it or it will die very soon.")
     # checks if the pet has reached a new life stage and updates it accordingly
     pet_functions.aging()
