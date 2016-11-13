@@ -5,6 +5,8 @@ import threading
 import pet_variables
 # a module which includes various custom functions
 import pet_functions
+# import the sys function
+import sys
 
 
 # Beginning of the main routine which makes up the actual game.
@@ -32,7 +34,7 @@ while pet_functions.is_alive():
     print("What would you like to do?")
     # Start the chosen activity and go back to the activity selector.
     print("1: Feeding, 2: Playing, 3: Stroke Pet,")
-    print("4: Poking, 5: Sleeping, 6: Show Stats")
+    print("4: Poking, 5: Sleeping, 6: Show Stats, 0: Exit")
     try:
         chosen_activity = int(input("Choose the desired activity:"))
         if chosen_activity == 1:
@@ -47,6 +49,8 @@ while pet_functions.is_alive():
             pet_functions.sleeping()
         elif chosen_activity == 6:
             pet_functions.pet_stats()
+        elif chosen_activity == 0:
+            sys.exit()
     except ValueError:
         pet_functions.pet_stats()
 print("Your pet died.")
