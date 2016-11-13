@@ -26,9 +26,9 @@ def pet_stats():
     print(pet_variables.pet_photo)
     print("Status: " + pet_variables.pet_status)
     print("Age: " + str(pet_variables.pet_age))
-    print("Health: " + pet_variables.pet_health * "♥")
+    print("Health: " + pet_variables.pet_health * "♥ ")
     print("Hunger: " + pet_variables.pet_hunger * "*")
-    print("Happines: " + pet_variables.pet_happiness * "☺")
+    print("Happines: " + pet_variables.pet_happiness * "☺ ")
 
 
 # A function which checks if the pet is still alive
@@ -83,13 +83,16 @@ def aging():
     if pet_variables.pet_age == 5:
         pet_variables.pet_status = "adult"
         set_adult_stats()
-        print("Congratulation your pet has become an adult. It needs less food now")
-        print("and it's health has improved however it's grumpier than a youngling.")
+        print("Congratulation your pet has become an adult. \
+                It needs less food now")
+        print("and it's health has improved. However, \
+                it's grumpier than a youngling.")
     elif pet_variables.pet_age == 15:
         pet_variables.pet_status = "elderly"
         set_elderly_stats()
-        print("Congratulation your pet has become an elderly it needs now less food.")
-        print("However it's health is worse and it's grumpier than an adult.")
+        print("Congratulation your pet has become an elderly. \
+                It needs less food now.")
+        print("However it's health is worse and it is grumpier than an adult.")
 
 
 ### Functions to increase and decrease stats ###
@@ -160,7 +163,10 @@ def stroking():
 # and health.
 def feeding():
     os.system('clear')
-    print("Hungriness of " + pet_variables.pet_name + ": " + pet_variables.pet_hunger * "*")
+    print("Hungriness of " \
+            + pet_variables.pet_name \
+            + ": " \
+            + pet_variables.pet_hunger * "*")
     feeding_confirmed = input("Do you want to feed your pet?")
     if feeding_confirmed in ("Y", "y"):
         increase_hunger()
@@ -189,14 +195,19 @@ def playing():
 def poking():
     os.system('clear')
     if pet_variables.poke_count < 3:
-        print("You poke " + pet_variables.pet_name + " and it starts to speak.")
+        print("You poke " \
+                + pet_variables.pet_name \
+                + " and it starts to speak.")
         increase_poke_count()
         mixer.init()
         mixer.music.load('happy.mp3')
         mixer.music.play()
         time.sleep(5)
     else:
-        print("You annoyed " + pet_variables.pet_name + "." + " It got angry at you.")
+        print("You annoyed " \
+                + pet_variables.pet_name \
+                + "." \
+                + " It got angry at you.")
         decrease_happiness()
         mixer.init()
         mixer.music.load('angry.mp3')
